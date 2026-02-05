@@ -4,15 +4,15 @@
 class Enva < Formula
   desc "CLI for enva lab deployment (K3s, LXC, HAProxy, ArgoCD)"
   homepage "https://github.com/swipentap/enva"
-  version "0.0.3"
+  version "0.0.4"
 
   on_arm do
     url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-arm64.tar.gz"
-    sha256 "03d7bf68485690a3e3b21880102c6b7b19802331c516509665c2c9384024fd85"
+    sha256 "28b3fa0b4f47c91f351592bbdbb38255be686c5b8e42c004e15309e981128b7f"
   end
   on_intel do
     url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-amd64.tar.gz"
-    sha256 "640ca596cec009af82b40b39e2d2b84bffba48540140a05d13b6b176c89aa89b"
+    sha256 "fa909abdfeacc12bdd8ed6263d9b31cd554f4a83f3615dd10e15334abcf74651"
   end
 
   head "https://github.com/swipentap/enva.git", branch: "main"
