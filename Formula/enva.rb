@@ -7,11 +7,11 @@ class Enva < Formula
   version "0.0.3"
 
   on_arm do
-    url "https://github.com/swipentap/enva/releases/download/v\#{version}/enva-\#{version}-darwin-arm64.tar.gz"
+    url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-arm64.tar.gz"
     sha256 "03d7bf68485690a3e3b21880102c6b7b19802331c516509665c2c9384024fd85"
   end
   on_intel do
-    url "https://github.com/swipentap/enva/releases/download/v\#{version}/enva-\#{version}-darwin-amd64.tar.gz"
+    url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-amd64.tar.gz"
     sha256 "640ca596cec009af82b40b39e2d2b84bffba48540140a05d13b6b176c89aa89b"
   end
 
@@ -27,7 +27,7 @@ class Enva < Formula
       libexec.install Dir["publish/*"]
       (bin/"enva").write <<~EOS
         #!/bin/sh
-        exec "\#{libexec}/Enva" "$@"
+        exec "#{libexec}/Enva" "$@"
       EOS
       chmod 0755, bin/"enva"
     else
@@ -36,6 +36,6 @@ class Enva < Formula
   end
 
   test do
-    assert_match "enva", shell_output("\#{bin}/enva --help", 0)
+    assert_match "enva", shell_output("#{bin}/enva --help", 0)
   end
 end
