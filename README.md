@@ -20,7 +20,7 @@ brew tap swipentap/enva
 brew install --HEAD enva
 ```
 
-**Binaries:** By default the formula builds from source (main). To publish a release and switch the formula to pre-built binaries: push a tag (e.g. `v0.0.1`). The Release workflow builds macOS arm64/amd64 binaries, creates the GitHub Release, and updates this formula with the correct sha256. Add repo secret `HOMEBREW_ENVA_REPO_TOKEN` (PAT with push access to this repo) so the workflow can push the formula update.
+**Release:** Push tag (e.g. `v0.0.1`). Release workflow builds binaries, creates the GitHub Release, and updates this formula with sha256. Add repo secret `HOMEBREW_ENVA_REPO_TOKEN` (push to this repo) in the enva repo.
 
 ## Usage
 
