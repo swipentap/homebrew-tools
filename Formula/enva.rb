@@ -14,10 +14,7 @@ class Enva < Formula
   def install
     rid = Hardware::CPU.arm? ? "osx-arm64" : "osx-x64"
     system "dotnet", "publish", "src/Enva.csproj",
-           "-c", "Release",
-           "-r", rid,
-           "--self-contained", "true",
-           "-o", "publish"
+           "-c", "Release", "-r", rid, "--self-contained", "true", "-o", "publish"
     libexec.install Dir["publish/*"]
     (bin/"enva").write <<~EOS
       #!/bin/sh
