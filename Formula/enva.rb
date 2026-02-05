@@ -4,6 +4,9 @@
 class Enva < Formula
   desc "CLI for enva lab deployment (K3s, LXC, HAProxy, ArgoCD)"
   homepage "https://github.com/swipentap/enva"
+  url "https://github.com/swipentap/enva/archive/refs/heads/main.tar.gz"
+  sha256 "4d49aa123eaef5e8ff6fb079e39543f85114898239c78ddc92eee3cf6b0f5eed"
+  version "0.0.1"
   head "https://github.com/swipentap/enva.git", branch: "main"
 
   depends_on "dotnet" => :build
