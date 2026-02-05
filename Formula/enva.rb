@@ -4,15 +4,27 @@
 class Enva < Formula
   desc "CLI for enva lab deployment (K3s, LXC, HAProxy, ArgoCD)"
   homepage "https://github.com/swipentap/enva"
-  version "0.0.9"
+  version "0.0.10"
 
-  on_arm do
-    url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-arm64.tar.gz"
-    sha256 "e0074b5d52ea66c45608d68b29236d529ab7eb1574492310cb9d628bb410a233"
+  on_macos do
+    on_arm do
+      url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-arm64.tar.gz"
+      sha256 "de2ff0d4a67da56964e97f9a79e6deed06e9a1254b498b23efca2730aad6f75d"
+    end
+    on_intel do
+      url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-amd64.tar.gz"
+      sha256 "bf3c217f8957837b9ddb27c159b312e44ae5fdd3acd1bc2fc6bc0776491724db"
+    end
   end
-  on_intel do
-    url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-amd64.tar.gz"
-    sha256 "412f617294bcca70cdac27364df6252dd1b81794fb29a39ea1ed36c9c292accc"
+  on_linux do
+    on_arm do
+      url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-linux-arm64.tar.gz"
+      sha256 "2e03419da7a4473c30885bf50dc3db5f5fe961c3fd81fc643f0f303ff46d3a1c"
+    end
+    on_intel do
+      url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-linux-amd64.tar.gz"
+      sha256 "96e422bf5389e3f19c2113fd922f3d5b60d03e40a19b7b628099d6a57c8d5139"
+    end
   end
 
   head "https://github.com/swipentap/enva.git", branch: "main"
@@ -21,7 +33,11 @@ class Enva < Formula
 
   def install
     if build.head?
-      rid = Hardware::CPU.arm? ? "osx-arm64" : "osx-x64"
+      rid = if OS.mac?
+        Hardware::CPU.arm? ? "osx-arm64" : "osx-x64"
+      else
+        Hardware::CPU.arm? ? "linux-arm64" : "linux-x64"
+      end
       system "dotnet", "publish", "src/Enva.csproj",
              "-c", "Release", "-r", rid, "--self-contained", "true", "-o", "publish"
       libexec.install Dir["publish/*"]
