@@ -4,26 +4,26 @@
 class Enva < Formula
   desc "CLI for enva lab deployment (K3s, LXC, HAProxy, ArgoCD)"
   homepage "https://github.com/swipentap/enva"
-  version "0.0.17"
+  version "0.0.18"
 
   on_macos do
     on_arm do
       url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-arm64.tar.gz"
-      sha256 "e669f3c938508fec52e1bd36a3aba9395ace830876e8632a05e50a72f31cf1d5"
+      sha256 "fbf965f859dec1c7b091a9947e5914c90dfc36496129dfc1514fa2e097dc2a06"
     end
     on_intel do
       url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-darwin-amd64.tar.gz"
-      sha256 "ce69ebe7b14336e897074899fb8c28c11d9159341de447778df9a74f25413130"
+      sha256 "a5e95cc00050d2c2713dc3dd17943796a9d06cacf00b77bc794211a3a39616b4"
     end
   end
   on_linux do
     on_arm do
       url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-linux-arm64.tar.gz"
-      sha256 "eae20d5b79c0f547bd450e739a593881dabcdc0b62cf5db445e884b964f965d8"
+      sha256 "844396fd7e7502184fad08b7d65ef4df3c6b47a581adc9971141d8a6eb582505"
     end
     on_intel do
       url "https://github.com/swipentap/enva/releases/download/v#{version}/enva-#{version}-linux-amd64.tar.gz"
-      sha256 "bd1632bc8791b652162e19f0f216e1a3c59df96c55f70bd9fa129e26af7633b2"
+      sha256 "fdebc699ff4fe002384360a6afe093a7ceb1da649fd42d76c257345ecbc41d8b"
     end
   end
 
